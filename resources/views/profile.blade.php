@@ -18,11 +18,11 @@
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="name"><strong>Name:</strong></label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control" value="{{Auth::user()->name}}">
                         </div>
                         <div class="form-group">
                             <label for="email"><strong>Name:</strong></label>
-                            <input type="email" id="email" name="email" class="form-control">
+                            <input type="email" id="email" name="email" class="form-control" value="{{Auth::user()->email}}"> 
                         </div>
                         <button class="btn btn-primary" type="submit">Update Profile</button>
                     </form>
