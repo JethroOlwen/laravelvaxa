@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use Session;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -22,6 +23,7 @@ class ProfileController extends Controller
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->save();
-       return back();
+        // Session::flash('flashMessage','profile updated');
+       return back()->with('flashMessage','profile updated');
     }
 }

@@ -1,11 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
+<div class="container">
+@if(session()->get('flashMessage'))
+    <div class="alert alert-success" role="alert">
+        <strong>success </strong>{{session()->get('flashMessage')}}
+    </div>
+@endif
+    <div class="row justify-content-center">
+
 <!-- This is Sidebar -->
 @include('includes.profile_sidebar')
 <!-- End of Sidebar -->
-        <div class="col-md-8">
+
+        <div class="col-md-9">
+
             <div class="card">
+        
                 <div class="card-header">{{Auth::user()->name}}'s Dashboard</div>
 
                 <div class="card-body">
