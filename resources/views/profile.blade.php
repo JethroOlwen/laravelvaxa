@@ -15,7 +15,8 @@
                         </div>
                     @endif
 
-                    <form action="" method="post">
+                    <form action="{!! route('profileUpdate') !!}" method="post">
+                        @csrf
                         <div class="form-group">
                             <label for="name"><strong>Name:</strong></label>
                             <input type="text" id="name" name="name" class="form-control" value="{{Auth::user()->name}}">

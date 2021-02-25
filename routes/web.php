@@ -22,6 +22,6 @@ Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
 
 
 Auth::routes();
-
+Route::post('/profileupdate', 'ProfileController@profileUpdate')->name('profileUpdate');
 Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::get('/home', 'HomeController@index')->name('home');
