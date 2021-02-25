@@ -20,10 +20,17 @@
                         <div class="form-group">
                             <label for="name"><strong>Name:</strong></label>
                             <input type="text" id="name" name="name" class="form-control" value="{{Auth::user()->name}}">
+                            @error('name')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
+                        
                         <div class="form-group">
                             <label for="email"><strong>Name:</strong></label>
                             <input type="email" id="email" name="email" class="form-control" value="{{Auth::user()->email}}"> 
+                            @error('email')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <button class="btn btn-primary" type="submit">Update Profile</button>
                     </form>
