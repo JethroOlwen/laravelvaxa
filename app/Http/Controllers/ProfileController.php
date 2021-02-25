@@ -12,6 +12,12 @@ class ProfileController extends Controller
     }
 
     public function profileUpdate(Request $request){
+        //validation
+        $request->validate([
+            'name' => 'required|min:2|string|max:255',
+            'email' => 'required|email|max:255'
+        ]);
+
         $user = Auth::user();
         $user->name = $request['name'];
         $user->email = $request['email'];
