@@ -23,4 +23,5 @@ Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
 
 Auth::routes();
 
+Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::get('/home', 'HomeController@index')->name('home');

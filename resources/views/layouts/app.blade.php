@@ -58,7 +58,7 @@
                                      <a class="dropdown-item" href="{{ route('home') }}">
                                         Dashboard
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
                                         Profile Setting
                                     </a>
                                     <a class="dropdown-item" href="#">
