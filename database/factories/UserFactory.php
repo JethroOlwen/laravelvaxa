@@ -18,9 +18,11 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+    $filepath = public_path('img/avatar');
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
+        'avatar' =>$faker->image($filepath,250,250,'people',false),
         'email_verified_at' => now(),
         'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
         'remember_token' => Str::random(10),
