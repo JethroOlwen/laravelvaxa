@@ -1,20 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
 <div class="container">
-@if(session()->get('flashMessage'))
-    <div class="alert alert-success" role="alert">
-        <strong>success </strong>{{session()->get('flashMessage')}}
-    </div>
-@endif
+    @if(session()->get('flashMessage'))
+        <div class="alert alert-success" role="alert">
+            <strong>success </strong>{{session()->get('flashMessage')}}
+        </div>
+    @endif
     <div class="row justify-content-center">
 
-<!-- This is Sidebar -->
-@include('includes.profile_sidebar')
-<!-- End of Sidebar -->
+    <!-- This is Sidebar -->
+    @include('includes.profile_sidebar')
+    <!-- End of Sidebar -->
 
         <div class="col-md-9">
 

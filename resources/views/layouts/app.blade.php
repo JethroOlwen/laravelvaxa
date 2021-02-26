@@ -58,6 +58,9 @@
                                      <a class="dropdown-item" href="{!! route('home') !!}">
                                         Dashboard
                                     </a>
+                                    <a class="dropdown-item" href="{!! route('profilePicture') !!}">
+                                        Profile Picture
+                                    </a>
                                     <a class="dropdown-item" href="{!! route('profile') !!}">
                                         Profile Setting
                                     </a>

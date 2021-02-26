@@ -24,6 +24,8 @@ Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
 Auth::routes();
 
 Route::post('/profileupdate', 'ProfileController@profileUpdate')->name('profileUpdate');
+Route::get('/profilepicture', 'ProfileController@showProfilePicture')->name('profilePicture');
+Route::post('/profilepicture', 'ProfileController@changeProfilePicture')->name('profilePicture');
 Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::post('/changeuserpassword', 'ProfileController@changePassword')->name('changeuserpassword');
 Route::get('/changeuserpassword', 'ProfileController@changeuserpassword')->name('changeuserpassword');

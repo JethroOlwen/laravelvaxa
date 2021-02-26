@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Auth;
 use Session;
 use Hash;
+use Image;
 use Illuminate\Http\Request;
+
 
 class ProfileController extends Controller
 {
@@ -55,6 +57,29 @@ class ProfileController extends Controller
         return back()->with('success','Password changed succesfully');
 
 
+    }
+
+    public function showProfilePicture(){
+        return view('editProfile');
+    }
+
+    public function changeProfilePicture(Request $request){
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time()."_".auth::user()->name.".".$avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(250,250)->save(public_path("/img/avatar/".$filename));
+
+            $request->validate([
+                'avatar' => 'required|image|mimes:jpeg,png'
+            ]);
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+            
+        }
+        
+        return back()->with('Message','Profile Picture uploaded succesfully');
     }
 
 }
