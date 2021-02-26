@@ -21,7 +21,7 @@ Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::post('/profileupdate', 'ProfileController@profileUpdate')->name('profileUpdate');
 Route::get('/profilepicture', 'ProfileController@showProfilePicture')->name('profilePicture');
