@@ -16,8 +16,10 @@ Route::group(['prefix'=>'page'],function(){
 
 });
 // Route::get('/','PageController@index'); 
-Route::get('/','QuoteController@index'); 
-Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
+// Route::get('/','QuoteController@index'); 
+Route::get('/','JobController@index'); //Route forJobs Homepage
+Route::get('/jobs/show','JobController@show')->name('jobs.show');
+// Route::get('/quotes/show','QuoteController@show')->name('quotes.show');
 
 
 

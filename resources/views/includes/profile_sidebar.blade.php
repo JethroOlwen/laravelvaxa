@@ -3,8 +3,9 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">Profile Picture</div>
-                <img src="img/avatar/{{Auth::user()->avatar}}" alt="Profile Picture" style="align:center;max-height: 200px; max-width:200px;object-position: center; object-fit: none;border-radius:50%;overflow: hidden;">
-            </div>
+                <img src="img/avatar/{{Auth::user()->avatar}}" alt="Profile Picture" style=" max-width:250px;width:auto;border-radius:50%;object-position:center;object-fit:cover">
+             </div>
+                
             <div class="card">
                 <div class="card-header">Sidebar</div>
                 <a href="{!! route('home') !!}" class="btn btn-primary btn-block">Dashboard</a>
