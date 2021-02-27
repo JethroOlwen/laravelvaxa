@@ -3,7 +3,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">Profile Picture</div>
-                <img src="img/avatar/{{Auth::user()->avatar}}" alt="Profile Picture" style=" max-width:250px;width:auto;border-radius:50%;object-position:center;object-fit:cover">
+                <img src="{{ url('/')}}/img/avatar/{{Auth::user()->avatar}}" alt="Profile Picture" style=" max-width:250px;width:auto;border-radius:50%;object-position:center;object-fit:cover">
              </div>
                 
             <div class="card">

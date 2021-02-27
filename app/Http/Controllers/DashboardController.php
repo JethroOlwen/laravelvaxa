@@ -1,11 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Job;
+use Auth;
 
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +26,8 @@ class DashboardController extends Controller
     public function index()
     {
         //
+        $jobs = Job::where('client_id',Auth()->id())->get();
+        return view ('dashboard.index',compact('jobs'));
     }
 
     /**
@@ -24,6 +38,7 @@ class DashboardController extends Controller
     public function create()
     {
         //
+        return view ('dashboard.create');
     }
 
     /**
@@ -35,6 +50,17 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'job_title' => 'required',
+            'slug' => 'required|unique:jobs',
+            'job_type' => 'required',
+            'salary' => 'required|numeric',
+            'job_description' => 'required|min:250'
+        ]);
+
+        $request->user()->jobs()->create($request->all());
+        return redirect('dashboard')->with('message','New job post uploaded');
+     
     }
 
     /**
@@ -46,6 +72,7 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
+        return view('dashboard.show');
     }
 
     /**
@@ -57,6 +84,8 @@ class DashboardController extends Controller
     public function edit($id)
     {
         //
+        $job = Job::find($id);
+        return view('dashboard.edit',compact('job'));
     }
 
     /**
@@ -69,6 +98,15 @@ class DashboardController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'job_title' => 'required',
+            'slug' => 'required|unique:jobs',
+            'job_type' => 'required',
+            'salary' => 'required|numeric',
+            'job_description' => 'required|min:250'
+        ]);
+        Job::find($id)->update($request->all());
+        return redirect()->route('dashboard')->with('message','Job post updated succesfully');
     }
 
     /**
@@ -79,6 +117,10 @@ class DashboardController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // find will retrieve object based on the primary key
+        $job = Job::find($id);
+        $job->delete();
+        return redirect('/dashboard')->with('message','Job post deleted succesfully');
+
     }
 }
