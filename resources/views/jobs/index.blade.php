@@ -39,11 +39,11 @@
               <div class="col-xs-12">
               <div class="jobs-block">
                 <header>
-                  <img src="/img/avatar/{{$job->client->avatar}}" alt="" style="max-width:70px;max-height:70px;width:auto"
+                  <img src="/img/avatar/{{$job->client->avatar}}" alt="" style="max-width:70px;max-height:70px;width:auto">
                   <a href=""></a>
                   <div class="hgroup">
                     <h4>
-            <a href="{{route('jobs.show')}}">{{ $job->job_title }}</a>
+            <a href="{{route('jobs.show',$job->slug)}}">{{ $job->job_title }}</a>
                     </h4>
                     <div class="spacer-front"></div>
                   </div>
@@ -51,7 +51,7 @@
                 </header>
 
                <footer>
-              <div class="status"><strong>Posted: &nbsp;<i class="fa fa-clock-o"></i></strong>2 minutes ago &nbsp; By:&nbsp;<a href="author-jobs-details.html">{{ $job->client->name}}</a></div>
+              <div class="status"><strong>Posted: &nbsp;<i class="fa fa-clock-o"></i></strong>{{ $job->created_at->diffForHumans()}} &nbsp; By:&nbsp;<a href="author-jobs-details.html">{{ $job->client->name}}</a></div>
             
                   <div class="action-btn">
                   {{ $job->salary }}

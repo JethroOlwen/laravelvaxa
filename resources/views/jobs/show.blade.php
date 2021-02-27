@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('descriptions','Descriptions for the Quotes Details, Quotes Details')
-
-@section('pagetitles','Details')
+@section('pagetitles','{{$job->job_title}}')
 @section('content')
 
 
@@ -31,24 +30,12 @@
         <div class="container">
           <div class="col-md-11 col-lg-12">
             <header class="section-header">
-              <h2>Quote Description</h2>
+              <h2>Job Description</h2>
             </header>
           <article class="post">
-            {{-- <h2>Job Description</h2> --}}
+          <h2>Job Description</h2>
              <div class="blog-content">
-          <p>Animi ex et beatae blanditiis. Ratione accusamus labore quaerat. Et in sunt ut iusto nesciunt odio libero. Quaerat ut impedit molestiae rerum.
-
-Beatae impedit non quo officiis mollitia nobis. Atque officiis consequatur itaque nulla qui velit. Eum nihil excepturi in libero exercitationem quasi aliquid voluptates.
-
-Ad est quas at earum ex enim. In non aut animi saepe ad ratione.
-
-Cum sed accusamus et quisquam deserunt necessitatibus sed beatae. Aperiam ut dolores dolorum illo adipisci eaque velit. Est perferendis consequatur pariatur sed voluptatum odit.
-
-Sint molestias facilis dolorum error exercitationem voluptatibus voluptas ut. Similique libero inventore nulla veritatis possimus dolorem. Quasi temporibus voluptas et aperiam ipsam. Omnis est nisi et ab laboriosam tenetur.
-
-Eaque rerum voluptas libero earum. Placeat nulla inventore fuga sed. Et qui deserunt non architecto corrupti.
-
-Nisi deserunt sed facere eveniet. Quo nihil est delectus. Voluptatem nam aut et repudiandae. </p>
+          <p>{{ $job->job_description }}</p>
 </div>
 </div>
 </article>

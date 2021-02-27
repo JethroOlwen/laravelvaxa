@@ -10,4 +10,8 @@ class Job extends Model
     public function client(){
         return $this->belongsTo(User::class,'client_id');
     }
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }

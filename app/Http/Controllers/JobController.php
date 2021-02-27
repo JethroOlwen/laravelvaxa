@@ -19,7 +19,7 @@ class JobController extends Controller
          return view('jobs.index',compact('jobs'));
      }
 
-     Public function show(){
-         return view('jobs.show');
+     Public function show(Job $job){
+         return view('jobs.show',compact('job'));
      }
 }
