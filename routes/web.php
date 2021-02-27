@@ -32,3 +32,6 @@ Route::get('/profile', 'ProfileController@profile')->name('profile');
 Route::post('/changeuserpassword', 'ProfileController@changePassword')->name('changeuserpassword');
 Route::get('/changeuserpassword', 'ProfileController@changeuserpassword')->name('changeuserpassword');
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Restful controller
+Route::resource('/dashboard','DashboardController');
